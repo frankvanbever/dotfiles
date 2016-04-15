@@ -1,3 +1,4 @@
+set t_Co=256
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -26,6 +27,7 @@ Plugin 'gmarik/Vundle.vim'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
+
 " gotham color scheme
 Plugin 'whatyouhide/vim-gotham'
 
@@ -36,7 +38,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 
 " fugitive
-Plugin 'file:///home/fvb/.vim/bundle/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " Vim markdown mode
 Plugin 'godlygeek/tabular'
@@ -44,6 +46,9 @@ Plugin 'plasticboy/vim-markdown'
 
 " YouCompleteMe
 Plugin 'valloric/YouCompleteMe'
+
+" Vim OpenWRT UCI mode
+Plugin 'cmcaine/vim-uci'
 
 
 " All of your Plugins must be added before the following line
@@ -70,10 +75,10 @@ set background=dark
 
 syntax on
 
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+"set expandtab
+"set shiftwidth=2
+"set softtabstop=2
+"set tabstop=2
 
 set smartindent
 set tags=./tags;/
@@ -96,6 +101,7 @@ set confirm
 
 set colorcolumn=81
 
+" add sconscript
 autocmd BufRead,BufNewFile Sconscript set filetype=python
 autocmd BufRead,BufNewFile SConstruct set filetype=python
 
