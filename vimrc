@@ -1,5 +1,6 @@
 set t_Co=256
 set nocompatible              " be iMproved, required
+set laststatus=2	      " enable modeline allways
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -50,6 +51,12 @@ Plugin 'valloric/YouCompleteMe'
 " Vim OpenWRT UCI mode
 Plugin 'cmcaine/vim-uci'
 
+" Dockerfile highlighting
+Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
+
+" Airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -66,6 +73,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "
+"
+
+" enable the use of the mouse
+set mouse=a
 "if has('gui_running')
 colorscheme solarized
 set background=dark
@@ -101,6 +112,11 @@ set confirm
 
 set colorcolumn=81
 
+" sensible splitting
+set splitbelow
+set splitright
+
+
 " add sconscript
 autocmd BufRead,BufNewFile Sconscript set filetype=python
 autocmd BufRead,BufNewFile SConstruct set filetype=python
@@ -111,4 +127,5 @@ autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/ containedin=ALL
 " key remapping
 nnoremap <C-g> :NERDTreeToggle<CR>
 
+let g:airline_powerline_fonts = 1
 
