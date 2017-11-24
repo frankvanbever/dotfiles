@@ -58,6 +58,29 @@ Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" YCM-Generator
+Plugin 'rdnetto/YCM-Generator'
+
+
+" vim call-graphs
+Plugin 'hari-rangarajan/CCTree'
+
+" cscope maps
+Plugin 'chazy/cscope_maps'
+
+" Rust integration
+Plugin 'rust-lang/rust.vim'
+
+" MIPS ASM syntax highlighting
+Plugin 'HarnoRanaivo/vim-mipssyntax'
+
+" emmet-vim
+Plugin 'mattn/emmet-vim'
+
+" vim-surround
+Plugin 'tpope/vim-surround'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -77,19 +100,25 @@ filetype plugin indent on    " required
 
 " enable the use of the mouse
 set mouse=a
-"if has('gui_running')
-colorscheme solarized
-set background=dark
-"else
-"	colorscheme gotham
-"endif
+if has('gui_running')
+  colorscheme solarized
+else
+  colorscheme solarized
+  set background=dark
+endif
 
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
 syntax on
 
-"set expandtab
-"set shiftwidth=2
+
+
+set noexpandtab
+set tabstop=8
+set softtabstop=4
+set shiftwidth=4
+"set shiftwidth=4
+"set tabstop=4
 "set softtabstop=2
-"set tabstop=2
 
 set smartindent
 set tags=./tags;/
@@ -121,11 +150,21 @@ set splitright
 autocmd BufRead,BufNewFile Sconscript set filetype=python
 autocmd BufRead,BufNewFile SConstruct set filetype=python
 
+" add *.prepare and *.run files
+autocmd BufRead,BufNewFile *.prepare set filetype=sh
+autocmd BufRead,BufNewFile *.run set filetype=sh
+autocmd BufRead,BufNewFile *.config set filetype=sh
+
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/ containedin=ALL
 
 " key remapping
 nnoremap <C-g> :NERDTreeToggle<CR>
+nnoremap <F9> :YcmCompleter GoTo<CR>
+nnoremap <F12> :set nohlsearch<CR>
 
 let g:airline_powerline_fonts = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
 
+" set symbols for invisibles
+set listchars=tab:▸\ ,eol:¬
