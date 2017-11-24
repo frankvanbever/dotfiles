@@ -10,11 +10,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("marmelade" . "http://marmelade-repo.org/packages/")
 			 ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (package-initialize)
-
 
 ;;;;;;;;;;;;;;
 ;; Settings ;; 
@@ -28,12 +26,11 @@
 (require 'auto-complete) ;; enable autocomplete mode 
 (global-auto-complete-mode)
 
-
 ;;;;;;;;;;;;;;;
 ;; Evil Mode ;;
 ;;;;;;;;;;;;;;;
 
-(require 'evil) 
+(require 'evil)
 (evil-mode 1) ;; enable EVIL mode
 
 ;; change cursor color depending on Evil mode 
@@ -44,6 +41,50 @@
 (setq evil-insert-state-cursor '("#dc322f" bar))
 (setq evil-replace-state-cursor '("#dc322f" bar))
 (setq evil-operator-state-cursor '("#dc322f" hollow))
+
+;; make info mode play nicer with Evil mode
+(define-key Info-mode-map "g" nil)
+(define-key Info-mode-map ":" nil)
+
+
+
+
+;; enable evil bindings for magit
+(require 'evil-magit)
+
+;;;;;;;;;;;;;;;
+;; Helm Mode ;;
+;;;;;;;;;;;;;;;
+
+(require 'helm-config)
+(helm-mode 1)
+
+;;;;;;;;;;;;;;;
+;; Org Mode  ;;
+;;;;;;;;;;;;;;;
+
+(add-hook 'org-mode-hook
+	  (lambda()
+	    (linum-mode 0)))
+
+(setq org-src-fontify-natively t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; Neotree            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'neotree)
+(global-set-key [F8] 'neotree-toggle)
+(setq neo-theme (if window-system 'nerd 'arrows))
+
+(add-hook 'neotree-mode-hook
+	  (lambda()
+	    (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+	    (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+	    (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+	    (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Rainbow delimiters ;;
@@ -66,6 +107,13 @@
 ;; enable rainbow delimiters
 (add-hook 'c-mode-hook 'rainbowDelimiter-hook)
 
+;; set kernel as default style
+(setq c-default-style "linux")
+
+(require 'xcscope)
+(cscope-setup)
+
+
 ;;;;;;;;;;;
 ;; ELisp ;;
 ;;;;;;;;;;;
@@ -79,7 +127,20 @@
 
 (setq TeX-PDF-mode t)
 
+;;;;;;;;;;;;
+;; ggtags ;;
+;;;;;;;;;;;;
+
+;;(require 'ggtags)
+;;(add-hook 'c-mode-common-hook
+;;	  (lambda ()
+;;	    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+;;	      (ggtags-mode 1))))
+
+
+
 ;; HERE BE DRAGONS (and Custom modufications, do not touch)
+
 
 
 (custom-set-variables
