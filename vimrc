@@ -112,10 +112,10 @@ syntax on
 
 
 
-set noexpandtab
-set tabstop=8
-set softtabstop=4
-set shiftwidth=4
+"set noexpandtab
+"set tabstop=8
+"set softtabstop=4
+"set shiftwidth=4
 "set shiftwidth=4
 "set tabstop=4
 "set softtabstop=2
@@ -167,4 +167,5 @@ let g:airline_powerline_fonts = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 
 " set symbols for invisibles
+nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
