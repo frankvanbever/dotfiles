@@ -145,6 +145,8 @@ set colorcolumn=81
 set splitbelow
 set splitright
 
+" map leader to SPACE
+let mapleader=" "
 
 " add sconscript
 autocmd BufRead,BufNewFile Sconscript set filetype=python
