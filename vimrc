@@ -80,6 +80,9 @@ Plugin 'mattn/emmet-vim'
 " vim-surround
 Plugin 'tpope/vim-surround'
 
+" vim-RDF - plugins for editing RDF data
+Plugin 'niklasl/vim-rdf'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
