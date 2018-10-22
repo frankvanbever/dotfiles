@@ -83,6 +83,14 @@ Plugin 'tpope/vim-surround'
 " vim-RDF - plugins for editing RDF data
 Plugin 'niklasl/vim-rdf'
 
+" Jinja syntax highlighting
+Plugin 'lepture/vim-jinja'
+
+" Mixed source/asm plugin
+Plugin 'cmix'
+
+" Better C++ highlighting
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -103,17 +111,11 @@ filetype plugin indent on    " required
 
 " enable the use of the mouse
 set mouse=a
-if has('gui_running')
-  colorscheme solarized
-else
-  colorscheme solarized
-  set background=dark
-endif
+colorscheme solarized
+set background=dark
 
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
 syntax on
-
-
 
 "set noexpandtab
 "set tabstop=8
