@@ -92,6 +92,9 @@ Plugin 'cmix'
 " Better C++ highlighting
 Plugin 'octol/vim-cpp-enhanced-highlight'
 
+" support for Ansible
+Plugin 'pearofducks/ansible-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -114,7 +117,10 @@ set mouse=a
 colorscheme solarized
 set background=dark
 
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 9
+set guioptions-=T "remove toolbar
+set guioptions-=m "remove menubar
+set guioptions-=r "remove right hand scroll bar
 syntax on
 
 "set noexpandtab
@@ -157,6 +163,9 @@ let mapleader=" "
 autocmd BufRead,BufNewFile Sconscript set filetype=python
 autocmd BufRead,BufNewFile SConstruct set filetype=python
 
+" Identify yang files
+autocmd BufRead,BufNewFile *.yang set filetype=yang
+
 " add *.prepare and *.run files
 autocmd BufRead,BufNewFile *.prepare set filetype=sh
 autocmd BufRead,BufNewFile *.run set filetype=sh
@@ -168,7 +177,8 @@ autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/ containedin=ALL
 " key remapping
 nnoremap <C-g> :NERDTreeToggle<CR>
 nnoremap <F9> :YcmCompleter GoTo<CR>
-nnoremap <F12> :set nohlsearch<CR>
+nnoremap <leader>f :YcmCompleter FixIt<CR>
+nnoremap <leader>h :set nohlsearch<CR>
 
 let g:airline_powerline_fonts = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
@@ -176,3 +186,6 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 " set symbols for invisibles
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
+
+" I don't like folding
+set nofoldenable
