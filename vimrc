@@ -1,3 +1,4 @@
+set encoding=utf-8
 set t_Co=256
 set nocompatible              " be iMproved, required
 set laststatus=2	      " enable modeline allways
@@ -117,8 +118,8 @@ set mouse=a
 colorscheme solarized
 set background=dark
 
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 9
-set guioptions-=T "remove toolbar
+"set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 9
+"set guioptions-=T "remove toolbar
 set guioptions-=m "remove menubar
 set guioptions-=r "remove right hand scroll bar
 syntax on
