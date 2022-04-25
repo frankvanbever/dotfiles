@@ -71,6 +71,7 @@ This function should only modify configuration layer settings."
      python
      ranger
      ruby
+     rust
      shell
      syntax-checking
      themes-megapack
