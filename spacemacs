@@ -32,7 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(graphviz
+   '(
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -62,6 +62,7 @@ This function should only modify configuration layer settings."
          go-backend 'lsp
          go-tab-width 4
          go-format-before-save t)
+     graphviz
      gtags
      helm
      html
@@ -300,8 +301,8 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Ubuntu Mono"
-                               :size 11.0
+   dotspacemacs-default-font '("Hack"
+                               :size 10.0
                                :weight normal
                                :width normal)
 
